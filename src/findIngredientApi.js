@@ -20,7 +20,7 @@ class FindIngredientApi{
       this.ranking = FindIngredientApi.ranking;
       this.ignorePantry = FindIngredientApi.ignorePantry;
     }
-    /*Takes in IngredientList and parse into string*/
+    /*Takes in IngredientList and and parse into string*/
     parseArrayInput(ingredientList){
       let ingredientParam = '';
       ingredientList.forEach(element => {

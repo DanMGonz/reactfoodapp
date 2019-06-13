@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import FindIngredientApi from "./findIngredientApi";
-import FetchData from "./FoodApi";
+//import FetchData from "./FoodApi"; //commented for demo
 import RecipeCard from "./RecipeCard";
 import "./fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
-
+import findByIngredientsResponseData from "./findByIngredientsResponse"; // demo
 class Search extends Component {
   constructor(props) {
     super(props);
@@ -100,7 +100,7 @@ class Search extends Component {
     this.setState({ isCleared: true });
     this.setState({ value: "" });
     this.setState({isAdvancedSearch:false});
-    document.getElementById("plus-toggle").checked = false;
+    document.getElementById("plus-toggle").checked=false;
 
   }
   handleInputChange(event) {
@@ -134,17 +134,23 @@ class Search extends Component {
 
     let apiURL = FindIngredient.GetQuery();
 
-    //Set state --test only ;we can probably remove this
+    //Set state 
     this.setState({ IngredientInput: apiURL });
 
     //Fetch Data Using the using FetchData
     //pass the Url and auth token in paramater
-    let resp = FetchData(apiURL);
 
+    /*****************************************
+     * Block commented for demo
+     * 
+     * **************************************/
+    /*
+     let resp = FetchData(apiURL); //commented for demo
     resp.then(result => {
       this.setState({ RecipeResultList: result.data });
     });
 
+    
     //error handling
     resp.catch(function(error) {
       if (error.response) {
@@ -164,6 +170,15 @@ class Search extends Component {
       }
       console.log(error.config);
     });
+    **/ //end 
+
+    /******************************
+     * DEMO CODE START
+     * **************************/ 
+    this.setState({ RecipeResultList: findByIngredientsResponseData});
+    /******************************
+     * DEMO CODE END
+     * **************************/ 
 
     //scroll  down into result
     this.scrollIntoRecipeCardComponent();
@@ -219,7 +234,7 @@ class Search extends Component {
             type="text"
             value={this.state.value}
             onChange={this.handleInputChange}
-            placeholder="Search by ingredients: apple flour cane sugar"
+            placeholder="Search by ingredients: apple flour cane sugar."
             className="form-control search-bar"
           />
 

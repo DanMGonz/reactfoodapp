@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import FindRecipeInfoApi from "./RecipeInfoApi";
-import FetchData from "./FoodApi";
+//import FindRecipeInfoApi from "./RecipeInfoApi"; // commented for demo
+//import FetchData from "./FoodApi"; //commented for demo
+import informationResponse from "./informationResponse";//DEMO CODE
 import RecipeCardInfo from "./RecipeCardInfo";
 import Popup from "reactjs-popup";
 import "./App.css";
@@ -59,9 +60,14 @@ class RecipeCard extends Component {
     // alert(id);
 
     this.setState({ isrecipeCardClicked: true });
+    
+    
+
+    /**  Commented  for //demo
+    
     //find ingredients using API
     let RecipeInstruction = new FindRecipeInfoApi({ RecipeID: id });
-    //redundant but I ned to be surea
+
     RecipeInstruction.setRecipeID(id);
     RecipeInstruction.PrepareQueryString();
     let queryURL = RecipeInstruction.GetQuery();
@@ -72,7 +78,11 @@ class RecipeCard extends Component {
 
       //put the make RecipeCardINfo method here if you want to include this on event
     });
+     */
 
+     /************DEMO CODE START*************/
+     this.setState({ RecipeInfoResult: informationResponse });
+     /************DEMO CODE END*************/
     //for conditional rendering we can also do the same thig for clear to toggle it back to false
 
     //scroll up on card info component
