@@ -11,7 +11,7 @@
     "eslint-restricted-globals": "^0.2.0",
     "fetch-readablestream": "^0.2.0",
     "jquery": "^3.3.1",
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "react": "^16.8.4",
     "react-bootstrap": "^1.0.0-beta.6",
     "react-data-fetching": "^0.2.4",
